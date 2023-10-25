@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.playground-container {
+  background: black;
+  display: inline-block;
+  border: 3px solid black;
+}
+
+.playground {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 3px;
+}
+
+.playground .field {
+  width: 120px;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+  position: relative;
+}
+
+.playground .field:not(.taken):hover {
+  background-color: antiquewhite;
+}
+
+.playground .field.taken:hover {
+  background-color: slategray;
+  cursor: not-allowed;
+}
+
+.playground .field.crest::after {
+  content: "";
+  width: 80%;
+  height: 2px;
+  background-color: rgb(234, 18, 18);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+}
+.playground .field.crest::before {
+  content: "";
+  width: 80%;
+  height: 2px;
+  background-color: rgb(234, 18, 18);
+  transform: rotate(135deg);
+}
+
+.playground .field.circle::after {
+  content: "";
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  border: 2px solid rgb(25, 61, 219);
+}
